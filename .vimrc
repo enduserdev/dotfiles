@@ -25,15 +25,16 @@ Plugin 'rakr/vim-one'
 
 " functionality
 Plugin 'raimondi/delimitmate'
-Plugin 'valloric/youcompleteme'     | " autocomplete
 Plugin 'tpope/vim-fugitive'     | " git functionality within vim
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
 
 " user interface
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'itchyny/lightline.vim'     |" powerline bar alternative
 Plugin 'preservim/nerdtree'     | " dir tree
-Plugin 'xuyuanp/nerdtree-git-plugin'
+"Plugin 'xuyuanp/nerdtree-git-plugin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -120,8 +121,13 @@ set smartcase
 set noswapfile      | " turn off swapfile for vim
 set autoread            | " file monitoring
 set termguicolors       | " enable 256 color for schemes
+set encoding=utf-8
 " kitty line fix
 :let &t_ut=''
 
+
 hi Normal guibg=NONE
 hi Normal ctermbg=NONE
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
