@@ -25,7 +25,9 @@ Plugin 'rakr/vim-one'
 
 " functionality
 Plugin 'raimondi/delimitmate'
-Plugin 'tpope/vim-fugitive'     | " git functionality within vim
+" git functionality within vim
+Plugin 'tpope/vim-fugitive'
+" python autocompletion
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 
@@ -118,13 +120,15 @@ set showmatch
 set incsearch
 set ignorecase
 set smartcase
-set noswapfile      | " turn off swapfile for vim
-set autoread            | " file monitoring
-set termguicolors       | " enable 256 color for schemes
+set noswapfile " turn off swapfile for vim
+set autoread " file monitoring
+set termguicolors " enable 256 color for schemes
 set encoding=utf-8
 " kitty line fix
 :let &t_ut=''
-
+" faster scrolling
+nnoremap <C-e> 2<C-e>
+nnoremap <C-y> 2<C-y>
 
 hi Normal guibg=NONE
 hi Normal ctermbg=NONE
