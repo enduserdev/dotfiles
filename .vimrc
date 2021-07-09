@@ -27,15 +27,17 @@ Plugin 'rakr/vim-one'
 Plugin 'raimondi/delimitmate'
 " git functionality within vim
 Plugin 'tpope/vim-fugitive'
-" python autocompletion
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
+
+" autocompletion
+"Plugin 'davidhalter/jedi-vim'
+"Plugin 'ervandew/supertab'
+Plugin 'ycm-core/YouCompleteMe'
 
 " user interface
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'itchyny/lightline.vim'     |" powerline bar alternative
-Plugin 'preservim/nerdtree'     | " dir tree
+"Plugin 'itchyny/lightline.vim'     " powerline bar alternative
+Plugin 'preservim/nerdtree'
 "Plugin 'xuyuanp/nerdtree-git-plugin'
 
 " All of your Plugins must be added before the following line
@@ -107,11 +109,17 @@ set noshowmode
 
 " [FUNCTIONALITY]
 
+" faster scrolling
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
 set expandtab
 set softtabstop=4
+set shiftwidth=4
 set number
 set relativenumber
 set cursorline
+set colorcolumn=80
 set textwidth=80
 "set wrap
 set linebreak
@@ -124,11 +132,14 @@ set noswapfile " turn off swapfile for vim
 set autoread " file monitoring
 set termguicolors " enable 256 color for schemes
 set encoding=utf-8
+set listchars=tab:->,trail:-
+
+"Project specific vim settings
+"set exrc " source local .vimrc if present
+"set secure " limit usage of commands 
+" 
 " kitty line fix
 :let &t_ut=''
-" faster scrolling
-nnoremap <C-e> 2<C-e>
-nnoremap <C-y> 2<C-y>
 
 hi Normal guibg=NONE
 hi Normal ctermbg=NONE

@@ -93,8 +93,24 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Activate pyhon env
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+# MY CUSTOM ALIASES
+# * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+# Activate/deactivate pyhon env
 alias envon="source venv/bin/activate"
+alias envoff="deactivate"
+
+# SSH connect to Digital Ocean Droplet
+alias mydroplet="ssh -p 2220 taylor@174.138.20.215"
+
+# cd to ~/development/deakin_projects/ working directory.
+alias deakin="cd ~/development/deakin_projects/ && pwd"
+# cd to ~/development/pcc/ working directory.
+alias pcc="cd ~/development/pcc/ && pwd"
+# compile script
+alias comp="/usr/local/bin/comp.sh"
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -123,5 +139,20 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-#SSH Keychain
-eval 'keychain --eval --quiet --noask --agents ssh id_rsa'
+#SSH
+eval "$(ssh-agent -s)"
+
+#source /usr/share/nvm/init-nvm.sh
+
+# Coloured man pages
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+# splashkit
+export PATH="/home/taylor/.splashkit:$PATH"
+# clang++
+export PATH="/usr/bin/clang++:$PATH"
